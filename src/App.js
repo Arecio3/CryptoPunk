@@ -3,6 +3,7 @@ import Header from './components/Header';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import NftList from './components/NftList';
+import Main from './components/Main';
 
 function App() {
   const [nftData, setNftData] = useState([])
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className='app'>
       <Header />
+      <Main nftData={nftData}/>
       <NftList nftData={nftData}/>
     </div>
   );
