@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import punk from '../assets/owner/punk6.jpg'
-import punk2 from '../assets/owner/punkhead.png'
 import igLogo from '../assets/owner/instagram.png'
 import twitterLogo from '../assets/owner/twitter.png'
 import moreLogo from '../assets/owner/more.png'
