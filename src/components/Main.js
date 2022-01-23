@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import punk from '../assets/owner/punk6.jpg'
 import punk2 from '../assets/owner/punkhead.png'
 import igLogo from '../assets/owner/instagram.png'
@@ -6,26 +6,32 @@ import twitterLogo from '../assets/owner/twitter.png'
 import moreLogo from '../assets/owner/more.png'
 import '../styles/Main.css'
 
-const Main = ({nftData}) => {
+const Main = ({nftData, selectedNft}) => {
+    const [activeNft, setActiveNft] = useState(nftData[0])
+
+    useEffect(() => {
+        setActiveNft(nftData[selectedNft])
+    }, [nftData, selectedNft]);
+
   return (
     <div className='main'>
         <div className='mainContent'>
             <div className='nftHighlight'>
                 <div className="nftContainer">
-                <img className="selectedNft" src={punk} alt="" />
+                <img className="selectedNft" src={activeNft?.image_original_url} alt="" />
                 </div>
             </div>
             <div className='nftDetails' style={{color: "#fff"}}>
-                <div className="title">Drippy Hobo</div>
-                <span className='itemNumber'>•#3</span>
+                <div className="title">{activeNft.name}</div>
+                <span className='itemNumber'>•#{activeNft.token_id}</span>
             </div>
             <div className="owner">
                 <div className="ownerImageContainer">
-                    <img src={punk2} alt="" />
+                    <img src={activeNft.owner.profile_img_url} alt="" />
                 </div>
                 <div className='ownerDetails'>
                     <div className='ownerNameAndHandle'>
-                        <div>0xd6202790f9fB2a40F7DC4269914B89B4c0Cd5114</div>
+                        <div style={{color: '#fff'}}>{activeNft.owner.address}</div>
                         <div className='ownerHandle'>@areciocodes</div>
                     </div>
                     <div className='ownerLink'>
