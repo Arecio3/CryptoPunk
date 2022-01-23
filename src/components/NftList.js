@@ -6,7 +6,7 @@ const NftList = ({ nftData }) => {
   return (
   <div className='nftList'>
       {nftData.map(nft => (
-          <div>
+          <div onClick={() => console.log(nft.token_id)}>
               <CollectionCard 
               key={nft.token_id}
               id={nft.token_id}

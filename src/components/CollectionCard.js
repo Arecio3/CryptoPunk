@@ -3,8 +3,8 @@ import weth from '../assets/weth.png'
 import '../styles/CollectionCard.css'
 
 const CollectionCard = ({id, name, traits, image}) => {
-    return (
-        <div className='collectionCard'>
+    return <>
+        { image ? <div className='collectionCard'>
             <img src={image} alt="" className='NFTImg'/>
             <div className="details">
             <div className="name">
@@ -16,8 +16,8 @@ const CollectionCard = ({id, name, traits, image}) => {
                 <div className="price">{traits[0]?.value}</div>
             </div>
             </div>
-        </div>
-    )
+        </div> : <></>}
+    </>
+     
 }
-
 export default CollectionCard
